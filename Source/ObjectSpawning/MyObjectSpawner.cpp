@@ -17,19 +17,20 @@ void AMyObjectSpawner::SpawnObjAtLocation()
 {
 	if (ActorToSpawn)
 	{
+		
 		FVector SpawnLocation = GetActorLocation();   // Get manager's position
 		FRotator SpawnRotation = GetActorRotation();  // Get manager's rotation
 
 		FActorSpawnParameters SpawnParams;
 		SpawnParams.Owner = this; // Set owner if desired
 
-		GetWorld()->SpawnActor<AMyActorToSpawn>(ActorToSpawn, SpawnLocation, SpawnRotation, SpawnParams);
+		GetWorld()->SpawnActor<AMyActorToSpawn>(ActorToSpawn, SpawnLocation, SpawnRotation, SpawnParams); // Spawns the object, this does the spawn
 
-		UE_LOG(LogTemp, Log, TEXT("Spawned object at manager's location."));
+		UE_LOG(LogTemp, Log, TEXT("Spawned object at manager's location.")); // if works
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("SpawnObjectAtManagerLocation: ActorToSpawn not set!"));
+		UE_LOG(LogTemp, Warning, TEXT("SpawnObjectAtManagerLocation: ActorToSpawn not set!")); // if don't
 	}
 	
 }
@@ -39,7 +40,7 @@ void AMyObjectSpawner::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	SpawnObjAtLocation();
+	SpawnObjAtLocation(); // Uses the Function Spawn Obj At Location
 }
 
 

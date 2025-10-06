@@ -16,11 +16,11 @@ public:
 	// Sets default values for this actor's properties
 	AMyObjectSpawner();
 	
-	// builds the spawner. 
+	// Creates the actor subclass
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
 	TSubclassOf<AMyActorToSpawn> ActorToSpawn;
 
-	//
+	//Creates the function to spawn the object. 
 	UFUNCTION(BlueprintCallable, Category = "Spawning")
 	void SpawnObjAtLocation();
 
